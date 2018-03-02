@@ -1,0 +1,48 @@
+@import "normalize.css";
+@import url('https://fonts.googleapis.com/css?family=Anton');
+$strmContainer: #bfcfd2;
+$mainContainer: #a0b1b4;
+$textColor: #000;
+
+.strm {
+  &_container {
+    background-color: $strmContainer;
+    padding-bottom  : 0.1em;
+    margin-bottom   : 0.5em;
+  }
+
+  &_logo {
+    width     : 5em;
+    margin-top: 0.5em;
+  }
+
+  &_name {
+    font-size      : 1.25rem;
+    text-decoration: underline;
+    font-family    : 'Anton', sans-serif;
+    color          : $textColor;
+  }
+}
+
+.container {
+  text-align      : center;
+  width           : 100%;
+  background-color: $mainContainer;
+  @media (min-width: 760px) {
+    width : 608px;
+    margin: 0 auto;
+  }
+}
+
+body {
+  background-color: $mainContainer;
+}
+
+h1 {
+  font-size  : 2.25rem;
+  font-family: 'Anton', sans-serif;
+  @media (min-width: 760px) {
+    font-size: 4.25rem;
+    margin   : 25px 0;
+  }
+}
