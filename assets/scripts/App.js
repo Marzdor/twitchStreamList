@@ -1,5 +1,6 @@
 $(document).ready(function() {
   getData();
+  filterToggle();
 });
 
 function getData() {
@@ -15,6 +16,23 @@ function getData() {
       createPage(filterData(strmData, chanData));
     });
   }
+}
+
+function filterToggle() {
+  $("#all").text("All");
+  $("#online").text("■");
+  $("#offline").text("■");
+
+  $(".filter").on("click", function() {
+    var id = $(this).attr("id");
+    if (!$(this).hasClass("filter--Active")) {
+      $(".filter--Active").toggleClass("filter--inActive").text("■");
+      $(".filter--Active").toggleClass("filter--Active");
+      $(this).toggleClass("filter--inActive")
+      $(this).toggleClass("filter--Active").text(id);
+    }
+    setList(id);
+  });
 }
 
 function createPage(data) {
@@ -39,6 +57,29 @@ function filterData(sData, cData) {
       delete use[key];
     }
     return use;
+  }
+}
+
+function setList(active) {
+  var $strmList = $(".strm_status");
+  for (var i = 0; i < $strmList.length; i++) {
+    var $strmContainer = $($strmList[i]).parent().parent();
+    var offline = $($strmList[i]).text() === "Offline";
+    if (active === "online") {
+      if (offline) {
+        $strmContainer.hide();
+      } else {
+        $strmContainer.show();
+      }
+    } else if (active === "offline") {
+      if (offline) {
+        $strmContainer.show();
+      } else {
+        $strmContainer.hide();
+      }
+    } else {
+      $strmContainer.show();
+    }
   }
 }
 

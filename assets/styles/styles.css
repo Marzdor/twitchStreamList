@@ -3,12 +3,16 @@
 $strmContainer: #bfcfd2;
 $mainContainer: #a0b1b4;
 $textColor: #000;
+$activeText: #fff;
+$activeBackground: #346870;
+$inActiveBackground: #6e8c91;
 
 .strm {
   &_container {
     background-color: $strmContainer;
     padding-bottom  : 0.1em;
     margin-bottom   : 0.5em;
+    transition      : all 1s linear;
   }
 
   &_logo {
@@ -21,6 +25,34 @@ $textColor: #000;
     text-decoration: underline;
     font-family    : 'Anton', sans-serif;
     color          : $textColor;
+  }
+}
+
+.filter {
+  text-transform: capitalize;
+  transition    : all 1s linear;
+  display       : inline-block;
+  padding       : 0.25em;
+  @media (min-width: 760px) {
+    padding: 0.23em;
+  }
+
+  &--inActive {
+    background-color: $inActiveBackground;
+    width           : 5%;
+    @media (min-width: 760px) {
+      width: 2.5%;
+    }
+  }
+
+  &--Active {
+    background-color: $activeBackground;
+    color           : $activeText;
+    letter-spacing  : 0.1em;
+    width           : 80%;
+    @media (min-width: 760px) {
+      width: 90%;
+    }
   }
 }
 
@@ -39,8 +71,9 @@ body {
 }
 
 h1 {
-  font-size  : 2.25rem;
-  font-family: 'Anton', sans-serif;
+  font-size     : 2.25rem;
+  font-family   : 'Anton', sans-serif;
+  letter-spacing: 0.1em;
   @media (min-width: 760px) {
     font-size: 4.25rem;
     margin   : 25px 0;
